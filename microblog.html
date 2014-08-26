@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>仿微博添加和删除动画</title>
+<style>
+body{}
+input,button,select,textarea{outline:none;}
+.sdiv{width:400px;}
+.box{border: 1px solid #D0D0D0;line-height: 1.231;word-wrap: break-word;word-break: break-all;border-radius: 6px;margin: 0;padding: 0;text-align: center;}
+.box textarea{position:relative;width:97%;height:100px;resize:none;border:0;font-family:微软雅黑}
+.focus{border-color:#7BD6F6;-webkit-box-shadow:0 0 10px rgba(123, 214, 246, .6);box-shadow:0 0 10px rgba(123, 214, 246, .6);}
+.sdiv input{float:right;}
+ul{list-style:none;margin:0;padding:0;width:400px;}
+ul li{border-bottom:1px solid #CCC;}
+</style>
+</head>
+<body>
+<div class="sdiv">
+	<div id="box" class="box">
+		<textarea id="say" placeholder="ctrl+enter快速发表" autofocus></textarea>
+	</div>
+	<input type="button" id="submit" value="发布">
+</div>
+<div style="margin-top: 30px;font-size: 15px;font-family: 微软雅黑;">
+<ul id="talklist">
+	<li style="border:0; height:1px;"></li>
+	<li>
+		<p>光和热价格将让干活而几个金融股而今日韩国而今日韩国额空间人工湖额狂人合格客韩国科技更何况菊花哥快干活而况人乎顾客让韩国可</p>
+		<div style="height:20px;">
+			<span style="float:left">2013/04/09</span>
+			<div style="float:right;"><a class="delBtn" href='javascript:;' style="text-decoration:none">删除</a></div>
+		</div>
+	</li>
+	<li>
+		<p>任何人和投入人让他忽然听话人红人堂然后 让他忽然听话润喉糖人挺好</p>
+		<div style="height:20px;">
+			<span style="float:left">2013/04/09</span>
+			<div style="float:right;"><a class="delBtn" href='javascript:;' style="text-decoration:none">删除</a></div>
+		</div>
+	</li>
+	<li>
+		<p>嘎嘎嘎个任何人挺好教育局他肽聚糖金太阳交通局他太远 润喉糖</p>
+		<div style="height:20px;">
+			<span style="float:left">2013/04/09</span>
+			<div style="float:right;"><a class="delBtn" href='javascript:;' style="text-decoration:none">删除</a></div>
+		</div>
+	</li>
+</ul>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="jquery-1.7.1.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#say").focus();
+})
+$('#say').focus(function(){
+	$('#box').addClass('focus');
+});
+$('#say').blur(function(){
+	$('#box').removeClass('focus');
+});
+
+//ctrl+center发布
+$(document).keypress(function(e){
+	if(e.ctrlKey && e.which == 13 || e.which == 10) { 
+		submit();
+	} else if (e.shiftKey && e.which==13 || e.which == 10) {
+		//$("#btnv").click();
+		//document.body.focus();
+	}          
+})
+
+//摁按钮发布
+$("#submit").click(function(){
+	submit();
+});
+function submit() {
+	var word = $("#say").val();
+	if(word=="" || word.length==0){
+		return;
+	}
+	$("#submit").attr({"disabled":"disabled"});//暂时禁用按钮
+	
+	var $ul = $("#talklist");
+	$ul.append('<li><p>'+word+'</p><div style="height:20px;"><span style="float:left">'+'4/9'+'</span><div style="float:right;"><a class="delBtn" href="javascript:;" style="text-decoration:none">删除</a></div></div>');
+	var $lastli  = $ul.find("li:last");
+	var $firstli = $ul.find("li:first");
+	var liHeight = $lastli.height();
+	
+	//$lastli.prependTo($ul);
+	//$firstli.hide();
+	//$firstli.slideDown('slow', function(){});
+	$firstli.after($lastli);
+	$lastli.hide();
+	$lastli.slideDown('slow', function(){});
+	
+	
+	$("#say").val("");		//清除输入框的内容
+	$("#say").focus();		//输入框获取焦点
+	$("#submit").removeAttr('disabled');//按钮可以使用
+}
+
+$(".delBtn").live('click', function(){
+	var $li = $(this).parents('li');
+	$li.slideUp('slow', function() {$(this).remove();});
+});
+</script>
