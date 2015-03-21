@@ -54,15 +54,9 @@ $(function(){
 var Manager = {
     submit : function(){
         var word = $.trim($("#say").val()),
-            datetime = '',
-            timer = null;
-        if(word=="" || word.length==0){
-            $("#say").addClass( "warning" );
-            
-            timer && clearTimeout(timer);
-            setTimeout(function(){
-                $("#say").removeClass( "warning" );
-            }, 800);
+            datetime = '';
+        if(word=="" || word.length==0 || word.length>140){
+            this.warning();
             return;
         }
         $("#submit").attr({"disabled":"disabled"});//暂时禁用按钮
@@ -75,7 +69,6 @@ var Manager = {
         $ul.append('<li class="item"><p>'+word+'</p><div class="info"><span class="datetime fl">'+datetime+'</span><div class="fr"><a class="delBtn" href="javascript:;"">删除</a></div></div></li>');
         var $lastli  = $ul.find("li:last");
         var $firstli = $ul.find("li:first");
-        var liHeight = $lastli.height();
         
         $firstli.after($lastli);
         $lastli.hide();
@@ -124,5 +117,16 @@ var Manager = {
             }
         }
         return html;
+    },
+
+    timer : null,
+
+    warning : function(){
+        $("#say").addClass( "warning" );
+
+        this.timer && clearTimeout(this.timer);
+        setTimeout(function(){
+            $("#say").removeClass( "warning" );
+        }, 800);
     }
 }
