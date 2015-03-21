@@ -69,6 +69,8 @@ var Manager = {
         
         datetime = this.getNowtime();
 
+        word = this.replaceStr(word);
+
         var $ul = $("#talklist");
         $ul.append('<li class="item"><p>'+word+'</p><div class="info"><span class="datetime fl">'+datetime+'</span><div class="fr"><a class="delBtn" href="javascript:;"">删除</a></div></div></li>');
         var $lastli  = $ul.find("li:last");
@@ -106,5 +108,21 @@ var Manager = {
         $("#say").focus();        //输入框获取焦点
         $("#submit").removeAttr('disabled');//按钮可以使用
         $("#limit").html(140).removeClass( 'rank0 rank1' );
+    },
+
+    replaceStr : function(str){
+        str = $.trim(str);
+        var s = str.split("["),
+            html = "",
+            i, j;
+        for(i in s){
+            j = s[i].substr(0, 2);
+            if(typeof expdata[j] === "undefined"){
+                html += s[i];
+            }else{
+                html += "<img src='"+ expdata[j] +"' alt='exp' />"+s[i].substr(3);
+            }
+        }
+        return html;
     }
 }
