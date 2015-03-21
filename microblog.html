@@ -102,7 +102,7 @@ function submit() {
 	$("#submit").removeAttr('disabled');//按钮可以使用
 }
 
-$(".delBtn").live('click', function(){
+$(".delBtn").on('click', function(){
 	var $li = $(this).parents('li');
 	$li.slideUp('slow', function() {$(this).remove();});
 });
