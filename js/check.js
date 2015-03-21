@@ -45,8 +45,9 @@ $(function(){
         });
     });
 
-    $(".express").click(function(){
+    $(".express").click(function(e){
         $(".exp_list").fadeIn();
+        e.stopPropagation();
     })
 })
 
