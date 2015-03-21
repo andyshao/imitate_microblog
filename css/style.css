@@ -84,6 +84,24 @@ ul{list-style:none;margin:0;padding:0;}
 	text-align: right;
 	margin-top: 6px;
 }
+.send .func_area .express{
+    float: left;
+    margin-top: 4px;
+    color: #000;
+    text-decoration: none;
+}
+.send .func_area .express:hover{
+    color: #eb7350;
+}
+
+.send .func_area .express em{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url(../img/express/t.jpg) -7px 0px no-repeat;
+    background-size: 318%;
+    vertical-align: -4px;
+}
 .send .func_area .tips{
 	margin-right: 6px;
 }
@@ -130,3 +148,25 @@ ul{list-style:none;margin:0;padding:0;}
 	color: #A52A2A;
 }
 
+.exp_list{
+    width: 497px;
+    position: absolute;
+    z-index: 99;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 4px 20px 1px rgba(0,0,0,0.2);
+    display: none;
+}
+.exp_list ul{
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+.exp_list li{
+    float: left;
+    border-right: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 4px;
+}
+.exp_list li img{
+    cursor: pointer;
+}

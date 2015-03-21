@@ -1,0 +1,155 @@
+;(function($){
+	var expdata = [
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+		{
+			'nick':'88_org',
+			'name':'拜拜',
+			'href':'./img/express/88_org.gif'
+		},
+	];
+
+	var offset = $(".express").offset(),
+		$exp_list = $('<div class="exp_list"><ul class="clearfix"></ul></div>'),
+		html = "";
+       // <li><img src="./img/express/88_org.gif" alt=""></li>
+    for(var i=0; i<expdata.length; i++){
+    	html += '<li title="'+expdata[i].name+'"><img src="'+expdata[i].href+'" alt=""></li>';
+    }
+
+    $exp_list.css({"top":offset.top+27, "left":offset.left}).find('ul').html(html);
+    $exp_list.delegate("li", "click", function(){
+    	var title = '['+$(this).attr("title")+']';
+    	$("#say").append(title);
+    });
+
+    $('body').append($exp_list);
+})(jQuery);

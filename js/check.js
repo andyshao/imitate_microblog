@@ -43,6 +43,10 @@ $(function(){
         $(this).parents('li').slideUp('slow', function() {
             $(this).remove();
         });
+    });
+
+    $(".express").click(function(){
+        $(".exp_list").fadeIn();
     })
 })
 
