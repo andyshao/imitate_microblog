@@ -65,16 +65,12 @@ var Manager = {
 
         word = this.replaceStr(word);
 
-        var $ul = $("#talklist");
-        $ul.append('<li class="item"><p>'+word+'</p><div class="info"><span class="datetime fl">'+datetime+'</span><div class="fr"><a class="delBtn" href="javascript:;"">删除</a></div></div></li>');
-        var $lastli  = $ul.find("li:last");
-        var $firstli = $ul.find("li:first");
+        var $ul = $("#talklist"),
+            $one = $('<li class="item"><p>'+word+'</p><div class="info"><span class="datetime fl">'+datetime+'</span><div class="fr"><a class="delBtn" href="javascript:;"">删除</a></div></div></li>');
         
-        $firstli.after($lastli);
-        $lastli.hide();
-        $lastli.slideDown('slow');
-        
-        
+        $ul.find('.first').after($one);
+        $one.hide().slideDown( 'slow' );
+
         this.reset();
     },
 
@@ -125,7 +121,7 @@ var Manager = {
         $("#say").addClass( "warning" );
 
         this.timer && clearTimeout(this.timer);
-        setTimeout(function(){
+        this.timer = setTimeout(function(){
             $("#say").removeClass( "warning" );
         }, 800);
     }

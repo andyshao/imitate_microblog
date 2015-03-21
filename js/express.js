@@ -25,9 +25,6 @@
 	for(var key in expdata){
 		html += '<li title="'+key+'"><img src="'+expdata[key]+'" alt=""></li>';
 	}
-    /* for(var i=0; i<expdata.length; i++){
-    	html += '<li title="'+expdata[i].name+'"><img src="'+expdata[i].href+'" alt=""></li>';
-    } */
 
     $exp_list.find('ul').html(html);
    
