@@ -16,7 +16,8 @@
 		'微笑':'./img/express/smilea_thumb.gif',
 		'露牙':'./img/express/tootha_org.gif',
 		'笑哭':'./img/express/xiaoku_org.gif',
-		'调皮':'./img/express/zy_thumb.gif'
+		'调皮':'./img/express/zy_thumb.gif',
+		'小狗':'./img/express/doge_org.gif'
 	};
 
 	var $exp_list = $('.exp_list'),
