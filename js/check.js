@@ -101,17 +101,24 @@ var Manager = {
 
     replaceStr : function(str){
         str = $.trim(str);
-        var s = str.split("["),
+        var start = 0,
             html = "",
+            t = str.length,
             i, j;
-        for(i in s){
-            j = s[i].substr(0, 2);
-            if(typeof expdata[j] === "undefined"){
-                html += s[i];
-            }else{
-                html += "<img src='"+ expdata[j] +"' alt='exp' />"+s[i].substr(3);
+        for(i=0; i<t-3; i++){
+            if(str[i]=='[' && str[i+3]==']'){
+                j = str.substring(i+1, i+3);
+                html += str.substring(start, i);
+                if(typeof window.expdata[j] !== 'undefined'){
+                    html += '<img src="'+window.expdata[j]+'" alt="exp" />';
+                }else{
+                    html += str.substring(i, i+4);
+                }
+                i = i+3;
+                start = i+1;
             }
         }
+        html += str.substring(start, t);
         return html;
     },
 
