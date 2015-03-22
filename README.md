@@ -14,7 +14,7 @@ imitate_microblog
 5. 输入框字数的限制：监听keydown事件，每次执行keydown事件时均获取输入框的值的长度；我在实时显示当前剩余字数外，还为剩余字数添加了颜色提示；    
 6. 添加表情；  
 
-更多内容，欢迎关注我的博客：[]  
+更多内容，欢迎关注我的博客：[wenzi-microblog/](http://www.xiabingbao.com/javascript/2015/03/21/imitate-microblog/)  
 
 ###更新于2014/04/26  
 仿微博发布和删除的动画  
